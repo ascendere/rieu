@@ -1,0 +1,44 @@
+<!-- list-news.component.html -->
+<div class="container mx-auto px-4 sm:px-8 py-8">
+  <div class="my-2 flex sm:flex-row flex-col">
+    <div class="items-end">
+        <span class="bg-rieu-blue hover:bg-rieu-yellow text-white text-base font-bold py-2 px-4 rounded-full h-12 w-12 flex items-center justify-center" routerLink="/admin/addnews">
+            <mat-icon class="text-base text-bold">add</mat-icon>
+        </span>
+    </div>        
+</div>
+    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr>
+                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Título
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Fecha
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let news of newsList">
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <a [routerLink]="['/admin/detail-news', news.id]">{{ news.title }}</a>
+                      </td>                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ news.date | date }}</td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <button class="mat-icon-button hover:text-rieu-yellow" color="primary" (click)="editNews(news.id)">
+                            <mat-icon>edit</mat-icon>
+                          </button>                          
+                        <button class="mat-icon-button hover:text-red-500" color="warn" (click)="deleteNews(news.id)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+    </div>
+</div>

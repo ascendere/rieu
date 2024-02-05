@@ -1,0 +1,20 @@
+<app-landing-sidenav></app-landing-sidenav>
+><div class="relative mt-10 flex flex-col items-center">
+    <div class="text-center text-rieu-blue text-[32px] font-bold font-Inter cursor-pointer" [routerLink]="['/lnews-list']">Noticias Recientes</div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center mt-10">
+        <div *ngFor="let news of newsList" class="w-[370px] relative mx-4 my-4">
+            <div class="w-full h-[200px] bg-white rounded-[10px] shadow-lg border-2 border-gray-300 overflow-hidden relative">
+                <div class="w-full h-[105px] bg-white rounded-tl-[10px] rounded-bl-[10px] overflow-hidden">
+                    <img class="w-full h-full object-cover" [src]="news.image" alt="{{ news.title }}" />
+                </div>
+                <div class="p-4">
+                    <div class="text-zinc-600 text-sm font-normal font-Inter leading-snug overflow-hidden whitespace-nowrap overflow-ellipsis">{{ news.title }}</div>
+                    <div class="mt-2 text-cyan-700 text-base font-medium font-Inter leading-normal">
+                        <a [routerLink]="['/news-detail', news.id]">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="w-full mt-20">
+    <img src="./assets/images/le_bg.svg" alt="Fondo SVG" class="w-full h-auto absolute z-[-1]" />
+    <div class="text-center text-sky-950 text-2xl font-bold mb-6">
+        Líneas Estratégicas 
+        <span class="cursor-pointer" (click)="toggleTarjetas()">
+            {{ mostrarTarjetas ? '▲' : '▼' }}
+        </span>    </div>
+    <div class="flex flex-wrap justify-center items-start mt-16">
+        <!-- Card 1 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Impulsamos el desarrollo de habilidades de lectura y escritura crítica en el contexto universitario, favoreciendo la comprensión profunda y la comunicación efectiva del conocimiento.
+            </div>
+            <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Lecto-escritura</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute left-2 bottom-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover transform rotate-180" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Fomentamos el espíritu emprendedor en el ámbito educativo, incentivando la creación y la gestión de proyectos innovadores que enriquezcan el proceso de aprendizaje.
+            </div><br>
+            <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Emprendimiento educativo</div>
+        </div>        
+        <!-- Card 3 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Promovemos la responsabilidad social y la incorporación de valores éticos en el ámbito educativo, buscando formar ciudadanos comprometidos y conscientes de su papel en la sociedad.
+              </div>
+              <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Responsabilidad social y formación en valores</div>
+            </div>
+    </div>
+    
+    <!-- Segunda fila de tarjetas (ocultas inicialmente) -->
+    <div *ngIf="mostrarTarjetas" class="flex flex-wrap justify-center items-start mt-6">
+        <!-- Card 4 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Impulsamos el desarrollo de habilidades de lectura y escritura crítica en el contexto universitario, favoreciendo la comprensión profunda y la comunicación efectiva del conocimiento.
+              </div>              
+              <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Lecto-escritura</div>
+            </div>
+        <!-- Card 5 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Fomentamos el espíritu emprendedor en el ámbito educativo, incentivando la creación y la gestión de proyectos innovadores que enriquezcan el proceso de aprendizaje.
+              </div>             <br> 
+              <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Emprendimiento educativo</div>
+            </div>        
+        <!-- Card 6 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Promovemos la responsabilidad social y la incorporación de valores éticos en el ámbito educativo, buscando formar ciudadanos comprometidos y conscientes de su papel en la sociedad.              </div>
+                <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Responsabilidad social y formación en valores</div>
+            </div>
+    </div>
+
+    <div *ngIf="mostrarTarjetas" class="flex flex-wrap justify-center items-start mt-6 bt-12">
+        <!-- Card 4 
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Impulsamos el desarrollo de habilidades de lectura y escritura crítica en el contexto universitario, favoreciendo la comprensión profunda y la comunicación efectiva del conocimiento.
+            </div>
+            <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Lecto-escritura</div>
+        </div>-->
+        <!-- Card 5 -->
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute left-2 bottom-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover transform rotate-180" />
+            </div>
+            <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+                Fomentamos el espíritu emprendedor en el ámbito educativo, incentivando la creación y la gestión de proyectos innovadores que enriquezcan el proceso de aprendizaje.
+              </div><br>
+
+              <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Emprendimiento educativo</div>
+            </div>        
+        <!-- Card 6 
+        <div class="flex-shrink-0 w-[370px] h-[348px] relative bg-amber-500 p-8 rounded-lg shadow-md ml-8">
+            <div class="absolute right-2 top-2 w-[39px] h-[39px]">
+                <img src="./assets/images/le_points.svg" alt="Tu SVG" class="w-full h-full object-cover" />
+            </div>
+        <div class="text-xl font-medium font-roboto-condensed text-rieu-blue leading-snug mt-8 text-center">
+Promovemos la responsabilidad social y la incorporación de valores éticos en el ámbito educativo, buscando formar ciudadanos comprometidos y conscientes de su papel en la sociedad.
+        </div>
+            <div class="mt-8 text-2xl font-normal font-Secula-One text-center">Responsabilidad social y formación en valores</div>
+        </div>-->
+    </div>
+</div>

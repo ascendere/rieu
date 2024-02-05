@@ -1,0 +1,24 @@
+<app-landing-sidenav></app-landing-sidenav>
+    <div *ngIf="project" class="bg-zinc-100">
+        <img *ngIf="project.image" [src]="project.image" alt="Project Image" class="w-full h-[497px] object-cover object-center">
+
+        <div class="absolute -mt-28 left-0 right-0 mx-auto max-w-[1000px] bg-zinc-100 shadow-2xl p-8 top-4/5 border-l-4">
+            <div class="mb-4 text-sky-950 text-2xl font-semibold">{{ project.title }}</div>
+
+            <div class="flex items-center mb-4">
+                <div class="text-stone-600 text-opacity-70 text-base font-normal mr-4">
+                    Publicado el {{ project.formattedDate | titlecase }}
+                </div>
+
+                <div class="flex space-x-2">
+                    <div *ngFor="let label of project.labels" class="w-12 px-2 bg-blue-600 bg-opacity-10 rounded-sm justify-start items-center inline-flex">
+                        <div class="text-center text-blue-700 text-xs font-medium font-['Inter']">{{ label }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div [innerHTML]="project.content" class="text-black text-base font-normal leading-[1.5] mb-4"></div>
+        </div>
+    </div>
+
+

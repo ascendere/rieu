@@ -1,0 +1,45 @@
+<div class="container mx-auto mt-8">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Editar Noticia</h2>
+
+    <form (ngSubmit)="saveChanges()" class="max-w-3xl mx-auto">
+        <div class="mb-4">
+            <label for="titulo" class="block text-sm font-medium text-gray-600">Título</label>
+            <input type="text" id="titulo" name="titulo" [(ngModel)]="news.title" required
+                class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <div class="mb-4">
+            <label for="texto" class="block text-sm font-medium text-gray-600">Texto o Contenido</label>
+            <quill-editor [modules]="editorConfig" [(ngModel)]="news.content" name="content"
+                class="border rounded-md w-full h-64"></quill-editor>
+        </div>
+
+        <div class="mb-4 relative" *ngIf="news.image">
+            <label for="imagen" class="block text-sm font-medium text-gray-600">Imagen Actual</label>
+            <img [src]="news.image" alt="Imagen actual" class="mt-1 w-full h-32 object-cover border rounded-md">
+            <button type="button" class="text-sm text-red-500 font-medium mt-2" (click)="removeImage()">Quitar Imagen</button>
+        </div>
+
+        <div class="mb-4">
+            <label for="imagen" class="block text-sm font-medium text-gray-600">Subir Nueva Imagen</label>
+            <input type="file" id="imagen" name="imagen" (change)="onFileSelected($event)"
+                class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <div class="mb-4">
+            <label for="autor" class="block text-sm font-medium text-gray-600">Autor</label>
+            <input type="text" id="autor" name="autor" [(ngModel)]="news.autor" required
+                class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <div class="mb-4">
+            <label for="fecha" class="block text-sm font-medium text-gray-600">Fecha</label>
+            <input type="date" id="fecha" name="fecha" [(ngModel)]="news.date" required
+                class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <div class="flex justify-center">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Guardar Cambios</button>
+        </div>
+    </form>
+</div>

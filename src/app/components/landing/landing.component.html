@@ -1,0 +1,57 @@
+<app-landing-sidenav></app-landing-sidenav>
+
+<section id="inico">
+  <app-landing-welcome></app-landing-welcome>
+</section>
+
+<section id="noticias">
+  <app-landing-news></app-landing-news>
+</section>
+
+<section id="image-section" class="w-full h-auto mt-20">
+  <img src="./assets/images/objetivo, mis, vis.svg" class="w-full h-auto" alt="Objetivo, misión y visión">
+</section>
+
+<section id="linea-estrategicas">
+  <app-landing-strategic-lines></app-landing-strategic-lines>
+</section>
+
+<section id="red">
+  <div class="w-full h-auto relative mt-20 grid grid-cols-5 gap-4 justify-center items-center">
+    <div class="text-center text-sky-900">
+        <div class="text-[32px] font-bold font-inter leading-[50px]">7</div>
+        <div class="text-lg font-normal font-inter leading-loose">Proyectos</div>
+    </div>
+
+    <div class="text-center text-sky-900">
+        <div class="text-[32px] font-bold font-inter leading-[50px]">3</div>
+        <div class="text-lg font-normal font-inter leading-loose">Miembros</div>
+    </div>
+
+    <div class="text-center text-sky-900">
+        <div class="text-[32px] font-bold font-inter leading-[50px]">7</div>
+        <div class="text-lg font-normal font-inter leading-loose whitespace-nowrap">Líneas estratégicas</div>
+    </div>
+
+    <div class="text-center text-sky-900">
+        <div class="text-[32px] font-bold font-inter leading-[50px]">8</div>
+        <div class="text-lg font-normal font-inter leading-loose">Congresos</div>
+    </div>
+
+    <div class="text-center text-sky-900">
+      <div class="text-[32px] font-bold font-inter leading-[50px]">{{ visitCount }}</div>
+      <div class="text-lg font-normal font-inter leading-loose">Visitas</div>
+    </div>
+</div>
+
+</section>
+
+<section id="red">
+ <img src="./assets/images/redes.svg" alt="Redes" class="mt-12 w-full h-auto">
+</section>
+
+<section id="proyectos">
+  <app-landing-projects></app-landing-projects>
+</section>
+
+<app-landing-footer></app-landing-footer>

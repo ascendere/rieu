@@ -1,0 +1,36 @@
+<div class="container mx-auto mt-8">
+  <h2 class="text-2xl font-semibold mb-4 text-center">Agregar Noticia</h2>
+
+  <form (ngSubmit)="submitForm()" #newsForm="ngForm" class="max-w-3xl mx-auto">
+    <div class="mb-4">
+      <label for="titulo" class="block text-sm font-medium text-gray-600">Título</label>
+      <input type="text" id="titulo" name="titulo" [(ngModel)]="noticia.title" required
+             class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="mb-4">
+      <label for="texto" class="block text-sm font-medium text-gray-600">Texto o Contenido</label>
+      <quill-editor [modules]="editorConfig" [(ngModel)]="noticia.content" name="content" class="border rounded-md w-full h-64"></quill-editor>
+    </div>
+
+    <div class="mb-4 relative">
+      <label for="image" class="text-sm text-gray-400 font-medium leading-none">Imagen:</label>
+      <div class="flex items-center">
+        <input id="image" type="file" class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium" (change)="onFileSelected($event)" accept="image/*" required>
+        <button *ngIf="selectedImageFile" type="button" class="text-sm text-red-500 font-medium ml-2" (click)="removeImage()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="fecha" class="block text-sm font-medium text-gray-600">Fecha</label>
+      <input type="date" id="fecha" name="fecha" [(ngModel)]="noticia.date" required
+             class="mt-1 p-2 w-full border rounded-md">
+    </div>
+
+    <div class="flex justify-center">
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Guardar Noticia</button>
+    </div>
+  </form>
+</div>
