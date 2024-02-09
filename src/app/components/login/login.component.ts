@@ -1,48 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../services/authentication.service';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loginError: string = '';
-
+  errorMessage: string = '';
+  error: boolean = false;
+  email: string = ''; 
+  password: string = ''; 
   constructor(
+    private authService: AuthService,
     private formBuilder: FormBuilder,
-    private authService: AuthenticationService
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   ngOnInit(): void {
-    of(null).pipe(delay(7000)).subscribe(() => {
-    });
   }
 
-  login() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.signIn(email, password)
-        .subscribe(
-          () => {
-            // El servicio debería manejar la redirección después del inicio de sesión
-          },
-          error => {
-            this.loginError = 'Credenciales incorrectas. Verifica tu correo y contraseña.';
-            console.error('Error durante el inicio de sesión:', error);
-          }
-        );
-    } else {
-      this.loginError = 'Por favor, completa ambos campos correctamente.';
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+
+      this.authService.signInWithEmail(email, password).subscribe(
+        (user: User) => {
+          this.redirectToDashboard(user);
+        },
+        (error) => {
+          this.errorMessage = error.message;
+          this.error = true;
+        }
+      );
+    }
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signInWithGoogle().subscribe(
+      (user: User) => {
+        this.redirectToDashboard(user);
+      },
+      (error) => {
+        this.errorMessage = error.message;
+        this.error = true;
+      }
+    );
+  }
+
+  redirectToDashboard(user: User): void {
+    if (user) {
+      if (user.role === 'admin') {
+        this.router.navigate(['/admin', user.id]); 
+      } else if (user.role === 'editor') {
+        this.router.navigate(['/editor', user.id]); 
+      } else {
+        this.router.navigate(['/']); // Otra ruta por defecto, si es necesario
+      }
     }
   }
 }

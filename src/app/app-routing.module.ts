@@ -18,6 +18,9 @@ import { LnewsDetailComponent } from './components/landing/landing-news/lnews-de
 import { LprojectDetailComponent } from './components/landing/landing-projects/lproject-detail/lproject-detail.component';
 import { LnewsListComponent } from './components/landing/landing-news/lnews-list/lnews-list.component';
 import { LprojectsListComponent } from './components/landing/landing-projects/lprojects-list/lprojects-list.component';
+
+// Guard de auth
+import { AuthGuard } from './guards/auth.guard'
 import { LoginComponent } from './components/login/login.component';
 
 const adminRoutes: Routes = [
@@ -37,13 +40,13 @@ const adminRoutes: Routes = [
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'admin', component: AdminComponent, children: adminRoutes },
+  { path: 'admin', component: AdminComponent, children: adminRoutes, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'news-detail/:id', component: LnewsDetailComponent},
   { path: 'project-detail/:id', component: LprojectDetailComponent},
   { path: 'lnews-list', component: LnewsListComponent},
   { path: 'lproject-list', component: LprojectsListComponent},
-  { path: 'login', component: LoginComponent},
   { path: '**', redirectTo: '' },
 ];
 

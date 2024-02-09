@@ -1,4 +1,4 @@
-<app-landing-sidenav></app-landing-sidenav>
+<div>
     <div *ngIf="project" class="bg-zinc-100">
         <img *ngIf="project.image" [src]="project.image" alt="Project Image" class="w-full h-[497px] object-cover object-center">
 
@@ -17,8 +17,8 @@
                 </div>
             </div>
 
-            <div [innerHTML]="project.content" class="text-black text-base font-normal leading-[1.5] mb-4"></div>
+            <div [innerHTML]="formattedContent"></div>
         </div>
     </div>
-
-
+</div>
+  

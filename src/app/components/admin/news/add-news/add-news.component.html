@@ -10,7 +10,22 @@
 
     <div class="mb-4">
       <label for="texto" class="block text-sm font-medium text-gray-600">Texto o Contenido</label>
-      <quill-editor [modules]="editorConfig" [(ngModel)]="noticia.content" name="content" class="border rounded-md w-full h-64"></quill-editor>
+      <editor apiKey="oxv9mqoxi1su7ub5amkzchnibnqlm85px51e8ualtbz6zf3o"
+      [(ngModel)]="noticia.content" name="content" 
+      [init]="{
+          height: 500,
+          language: 'es',
+          plugins: [
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+          ],
+          toolbar:
+          'undo redo | casechange blocks | bold italic backcolor | \
+          alignleft aligncenter alignright alignjustify | \
+          bullist numlist checklist outdent indent | removeformat | a11ycheck code table | image media | help'
+          }">
+      </editor>
     </div>
 
     <div class="mb-4 relative">

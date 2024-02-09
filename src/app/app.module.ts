@@ -19,6 +19,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,9 +55,8 @@ import { LprojectDetailComponent } from './components/landing/landing-projects/l
 import { LandingFooterComponent } from './components/landing/landing-footer/landing-footer.component';
 import { LnewsListComponent } from './components/landing/landing-news/lnews-list/lnews-list.component';
 import { LprojectsListComponent } from './components/landing/landing-projects/lprojects-list/lprojects-list.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
-import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -110,13 +111,13 @@ import { AuthenticationService } from './services/authentication.service';
     MatInputModule,
     MatSelectModule,
     QuillModule.forRoot(),
+    EditorModule,
     CommonModule
   ],
   providers: [
     provideClientHydration(),
     UserService,
-    AuthGuard,
-    AuthenticationService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

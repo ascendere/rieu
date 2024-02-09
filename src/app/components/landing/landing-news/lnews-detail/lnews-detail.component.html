@@ -1,19 +1,18 @@
-<app-landing-sidenav></app-landing-sidenav>
-
-<div style="position: relative; min-height: 100vh;">
-    <div *ngIf="news" class="bg-zinc-100">
-        <!-- Imagen -->
-        <img *ngIf="news.image" [src]="news.image" alt="News Image" class="w-full h-[497px] object-cover object-center">
-
-        <!-- Contenedor del recuadro de noticias -->
-        <div class="absolute -mt-28 left-0 right-0 mx-auto max-w-[1000px] bg-zinc-100 shadow-2xl p-8 top-4/5 border-l-4">
-            <div class="mb-4 text-sky-950 text-2xl font-semibold">{{ news.title }}</div>
-            <div class="text-stone-600 text-opacity-70 text-base font-normal mb-4">
-                Publicado el {{ new?.formattedDate | titlecase }}
-            </div>
-
-            <!-- Contenido de la noticia -->
-            <div [innerHTML]="news.content" class="text-black text-base font-normal leading-[1.5] mb-4"></div>
+<div>
+    <div *ngIf="news" class=" bg-zinc-100">
+      <!-- Imagen -->
+      <img *ngIf="news.image" [src]="news.image" alt="News Image" class="w-full h-[497px] object-cover object-center">
+  
+      <!-- Contenedor del recuadro de noticias -->
+      <div class="absolute -mt-28 left-0 right-0 mx-auto max-w-[1000px] bg-zinc-100 shadow-2xl p-8 top-4/5 border-l-4">
+        <div class="mb-4 text-sky-950 text-2xl font-semibold">{{ news.title }}</div>
+        <div class="text-stone-600 text-opacity-70 text-base font-normal mb-4">
+          Publicado el {{ new?.formattedDate | titlecase }}
         </div>
+  
+        <!-- Contenido de la noticia -->
+        <div [innerHTML]="formattedContent"></div>
+      </div>
     </div>
-</div>
+  </div>
+  
