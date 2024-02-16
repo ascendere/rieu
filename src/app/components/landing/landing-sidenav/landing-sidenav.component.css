@@ -1,0 +1,12 @@
+/* CSS personalizado */
+@media (max-width: 639px) {
+    .header {
+        padding: 20px; /* Añade un poco de espacio alrededor del encabezado en dispositivos móviles */
+    }
+    .header > img {
+        margin-bottom: 10px; /* Añade un poco de espacio entre el logotipo y los enlaces en dispositivos móviles */
+    }
+    .header > .flex {
+        margin-top: 10px; /* Añade un poco de espacio entre los enlaces y el botón en dispositivos móviles */
+    }
+}
