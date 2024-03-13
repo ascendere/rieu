@@ -1,7 +1,6 @@
 
 <div class="relative mt-10">
-    <div class="text-center text-rieu-blue text-[32px] font-bold font-Inter" [routerLink]="['/lnews-list']" style="cursor: pointer;">Noticias Recientes</div>
-
+    <div class="text-center text-rieu-blue text-2xl font-bold " [routerLink]="['/lnews-list']" style="cursor: pointer;">Noticias Recientes</div>
     <div class="flex justify-center mt-10">
         <!-- *ngFor limitado a 3 tarjetas -->
         <div *ngFor="let news of recentNews" class="w-[370px] h-[105px] relative mx-8 my-4">

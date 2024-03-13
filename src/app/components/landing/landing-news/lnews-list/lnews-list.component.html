@@ -1,20 +1,21 @@
-<app-landing-sidenav></app-landing-sidenav>
-<div class="relative mt-10 flex flex-col items-center">
-    <div class="text-center text-rieu-blue text-[32px] font-bold font-Inter cursor-pointer" [routerLink]="['/lnews-list']">Noticias Recientes</div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center mt-10">
-        <div *ngFor="let news of newsList" class="w-[370px] relative mx-4 my-4">
-            <div class="w-full h-[200px] bg-white rounded-[10px] shadow-lg border-2 border-gray-300 overflow-hidden relative">
-                <div class="w-full h-[105px] bg-white rounded-tl-[10px] rounded-bl-[10px] overflow-hidden">
-                    <img class="w-full h-full object-cover" [src]="news.image" alt="{{ news.title }}" />
-                </div>
-                <div class="p-4">
-                    <div class="text-zinc-600 text-sm font-normal font-Inter leading-snug overflow-hidden whitespace-nowrap overflow-ellipsis">{{ news.title }}</div>
-                    <div class="mt-2 text-cyan-700 text-base font-medium font-Inter leading-normal">
-                        <a [routerLink]="['/news-detail', news.id]">Leer más</a>
-                    </div>
-                </div>
-            </div>
+<section>
+    <app-landing-sidenav></app-landing-sidenav>
+  </section>
+  
+  <section>
+    <div class="text-center text-rieu-blue text-2xl font-bold" [routerLink]="['/lnews-list']" style="cursor: pointer;">Noticias</div>
+    <img src="./assets/images/le_bg.svg" alt="Fondo SVG" class="w-full h-auto absolute z-[-1]" />
+    <div class="px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-20">
+      <div *ngFor="let news of newsList" class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden relative">
+        <div class="w-full md:w-1/2 p-4 flex items-center justify-center">
+          <img [src]="news.image" [alt]="news.title" class="object-cover h-60 w-full">
         </div>
+        <div class="md:w-1/2 p-6 relative mb-4">
+          <h2 class="text-xl font-roboto-condensed font-bold text-rieu-blue mb-2">{{ news.title }}</h2>
+          <a [routerLink]="['/news-detail', news.id]"
+            class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded absolute bottom-0 left-0 ml-4">Leer
+            más</a>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
