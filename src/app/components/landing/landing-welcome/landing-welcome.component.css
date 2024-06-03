@@ -1,16 +1,131 @@
+/* Asegúrate de ajustar los estilos CSS si es necesario */
+:root {
+  --base-font-size: 16px; /* Ajusta esta variable según sea necesario */
+  --color-rieu-cyan: #088395;
+  --color-interuni: #f4a261;
+}
+
+.text-container {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Asegura que el texto por defecto no sea negrita */
+  line-height: 1.5;
+}
+
+.text-rieu-cyan {
+  color: #088395;
+}
+
+.text-interuni {
+  color: #f4a261;
+}
+
+.text-bold-black {
+  font-weight: 700; /* Negrita */
+  color: #088395;
+}
+
+.texto {
+  margin-top: -7.5rem; /* Agrega padding superior e inferior */
+  padding: 10rem 0;
+}
+
+.texto-espaciado {
+  line-height: 1.8; /* Agrega line-height para el espaciado entre líneas */
+}
+
+.background-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 50.15%, rgba(255, 255, 255, 0.2) 100%), linear-gradient(270deg, #FFFFFF 0%, #CBF8FF 50%, #FFFFFF 100%);
+ }
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px;
-    border-radius: 4px;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0; /* Elimina el padding para evitar espacio extra */
+  box-sizing: border-box;
+  overflow: hidden; /* Para asegurarse de que el contenido no se desborde */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.background-image {
+  position: absolute;
+  top: -30%; /* Ajusta este valor para recortar la parte superior */
+  left: 0;
+  width: 100%;
+  height: 140%; /* Aumenta la altura para recortar la parte inferior */
+  background-image: url('/assets/images/welcome_bg.svg');
+  background-size: contain; /* Asegura que la imagen cubra todo el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen */
+  z-index: 1;
+  opacity: 0.5; /* Ajusta la opacidad según sea necesario */
+}
+
+.content-wrapper {
+  margin-top: -20rem;
+  position: relative;
+  z-index: 10; /* Asegura que el contenido esté por encima de la imagen de fondo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centra el texto en pantallas pequeñas */
+}
+
+.text-content-inner {
+  width: 34.8125rem; /* 557px / 16 */
+  height: 23.375rem; /* 374px / 16 */
+  top: -3rem; /* 57px / 16 */
+  left: 7rem; /* 112px / 16 */
+  gap: 3rem; /* 48px / 16 */
+  opacity: 1; /* Ajusta según sea necesario */
+  position: absolute;
+}
+
+.login-button {
+  margin-top: 2rem; /* Ajusta este valor según sea necesario para agregar espacio arriba */
+}
+
+.text-content {
+  text-align: justify; /* Justifica el texto */
+  margin: 1rem; /* Elimina el margen para evitar espacio extra */
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0;
   }
-  
-  @media (min-width: 768px) {
-    .container {
-        padding: 40px 40px 40px 0px; /* Padding: arriba, derecha, abajo, izquierda */
-    }
+
+  .content-wrapper {
+    flex-direction: row; /* Cambia a diseño de fila en pantallas grandes */
+    justify-content: flex-start; /* Alinea el contenido al inicio */
+    text-align: left; /* Alinea el texto a la izquierda en pantallas grandes */
+  }
+
+  .text-content {
+    width: 50%; /* Ajusta el ancho del contenido de texto */
+    padding-left: 10rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.custom-margin {
+  margin-left: 1rem;
+}
+
+@media (min-width: 600px) {
+  .custom-margin {
+    margin-left: 2rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1040px) {
+  .custom-margin {
+    margin-left: 8.5rem;
+    margin-top: 0;
+  }
 }

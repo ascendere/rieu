@@ -1,23 +1,20 @@
-
-<div class="text-center text-rieu-blue text-2xl font-bold mb-6" [routerLink]="['/lproject-list']" style="cursor: pointer;">
-  Proyectos
-</div>
-<div class="flex flex-wrap justify-center items-center gap-4">
-    <div *ngFor="let project of recentProjects.slice(0, 6)" class="w-[368px] h-[348px] relative bg-white rounded-[15px] shadow mb-8 overflow-hidden">
-      <img class="w-[368px] h-[183px] left-0 top-0 absolute object-cover" [src]="project.image" />
-      <div class="left-[20px] top-[195px] absolute justify-start items-center gap-2.5 inline-flex">
-        <div class="px-2 py-[3px] rounded-sm justify-start items-center gap-[3px] flex">
-          <div *ngFor="let label of project.labels" class="w-12 px-2 bg-blue-600 bg-opacity-15 rounded-sm justify-start items-center inline-flex mr-3">
-            <div class="text-center text-blue-700 text-xs font-medium font-['Inter']">{{ label }}</div>
+<section id="projects" class="w-full bg-gray-100 py-10">
+  <div class="container mx-auto">
+    <div class="text-center text-sky-900 text-2xl font-bold mb-6 cursor-pointer" [routerLink]="['/project-list']">
+      Proyectos
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let project of recentProjects" class="relative mb-16 overflow-visible">
+        <div class="w-full h-64 bg-cover bg-center rounded-t-lg" [ngStyle]="{'background-image': 'url(' + project.image + ')'}"></div>
+        <div class="absolute left-4 right-4 bottom-0 transform translate-y-1/2 bg-white bg-opacity-75 p-4 rounded-lg shadow-md z-10">
+          <div class="text-sky-950 text-lg font-medium mb-2 text-center">
+            {{ project.title }}
+          </div>
+          <div class="text-cyan-700 text-base font-medium mt-2 text-center">
+            <a [routerLink]="['/project-detail', project.id]">Leer más <i class="fa-solid fa-arrow-right ml-2"></i></a>
           </div>
         </div>
       </div>
-      <div class="w-[328px] h-[54px] left-[20px] top-[228px] absolute text-sky-950 text-lg font-medium font-['Inter']">
-        {{ project.truncatedTitle }}
-      </div>
-      <div class="left-[19px] top-[294px] absolute text-center text-cyan-700 text-base font-medium font-['Inter'] leading-normal">
-        <a [routerLink]="['/project-detail', project.id]">Leer más</a>
-      </div>
     </div>
   </div>
-  
+</section>

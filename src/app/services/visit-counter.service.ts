@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VisitCounterService {
-  private visitCount: number = 16;
+  private visitCount: number = 0;
 
-  constructor() {
-    if (typeof localStorage !== 'undefined') {
-      const storedCount = localStorage.getItem('visitCount');
-
-      if (storedCount) {
-        this.visitCount = parseInt(storedCount, 10);
-      }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
     }
   }
 
@@ -21,7 +19,7 @@ export class VisitCounterService {
   }
 
   incrementVisitCount(): void {
-    if (typeof localStorage !== 'undefined') {
+    if (isPlatformBrowser(this.platformId)) {
       this.visitCount++;
       localStorage.setItem('visitCount', this.visitCount.toString());
     }

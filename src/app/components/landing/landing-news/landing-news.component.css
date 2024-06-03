@@ -1,0 +1,66 @@
+/* Asegúrate de ajustar los estilos CSS si es necesario */
+:root {
+  --color-rieu-blue: #088395;
+}
+
+.text-rieu-blue {
+  color: #003355;
+}
+
+.portfolio__hover {
+  background: linear-gradient(180deg, #F4F4F4 0%, #E8E8E8 100%);
+  transition: opacity 0.5s ease-in-out;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.group:hover .portfolio__hover {
+  opacity: 1;
+}
+
+.portfolio__single img {
+  /* Eliminamos cualquier transición y transformación para desactivar el movimiento */
+  transition: none;
+}
+
+
+.portfolio__hover__heading, .portfolio__hover__text, .portfolio__hover__link {
+  color: #003355;
+  word-break: break-word; /* Asegura que el texto se rompa si es demasiado largo */
+
+}
+
+.portfolio__hover__link {
+  margin-left: 0.5rem; /* Asegura que el icono se alinee a la derecha */
+}
+
+.portfolio__single {
+  margin: 0; /* Agrega margen alrededor de la tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efecto flotante */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio__single:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensifica la sombra al pasar el ratón */
+}
+
+/* Estilos responsivos */
+@media (min-width: 40rem) {
+  .portfolio__single {
+    height: 25rem;
+  }
+
+  .portfolio__hover {
+    height: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (min-width: 48rem) {
+  .portfolio__single {
+    width: 23rem;
+    height: 25rem;
+  }
+}

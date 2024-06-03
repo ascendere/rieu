@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 //firebase imports
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 //angular material
 import { MatDialogModule } from '@angular/material/dialog';
@@ -20,7 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorModule } from '@tinymce/tinymce-angular';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +59,9 @@ import { LnewsListComponent } from './components/landing/landing-news/lnews-list
 import { LprojectsListComponent } from './components/landing/landing-projects/lprojects-list/lprojects-list.component';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
+import { LandingObjetivesComponent } from './components/landing/landing-objetives/landing-objetives.component';
+import { LandingREDComponent } from './components/landing/landing-red/landing-red.component';
+import { LandingMiembrosComponent } from './components/landing/landing-miembros/landing-miembros.component';
 
 @NgModule({
   declarations: [
@@ -88,18 +93,22 @@ import { LoginComponent } from './components/login/login.component';
     LnewsListComponent,
     LprojectsListComponent,
     LoginComponent,
+    LandingObjetivesComponent,
+    LandingREDComponent,
+    LandingMiembrosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCRzozKzxBBulE-lrttJA7ALGhymAk28yQ",
-      authDomain: "rieu-liid-58e81.firebaseapp.com",
-      projectId: "rieu-liid-58e81",
-      storageBucket: "rieu-liid-58e81.appspot.com",
-      messagingSenderId: "228227015451",
-      appId: "1:228227015451:web:58fcc75c1307003606e9be",
-      measurementId: "G-C6KJ70HFED"}),
+      apiKey: 'AIzaSyCRzozKzxBBulE-lrttJA7ALGhymAk28yQ',
+      authDomain: 'rieu-liid-58e81.firebaseapp.com',
+      projectId: 'rieu-liid-58e81',
+      storageBucket: 'rieu-liid-58e81.appspot.com',
+      messagingSenderId: '228227015451',
+      appId: '1:228227015451:web:58fcc75c1307003606e9be',
+      measurementId: 'G-C6KJ70HFED',
+    }),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
@@ -112,13 +121,9 @@ import { LoginComponent } from './components/login/login.component';
     MatSelectModule,
     QuillModule.forRoot(),
     EditorModule,
-    CommonModule
+    CommonModule,
   ],
-  providers: [
-    provideClientHydration(),
-    UserService,
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration(), UserService, AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

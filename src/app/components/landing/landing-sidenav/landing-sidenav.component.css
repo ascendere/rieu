@@ -1,47 +1,99 @@
-/* CSS personalizado */
-@media (max-width: 639px) {
-    .header {
-        padding: 20px; /* Añade un poco de espacio alrededor del encabezado en dispositivos móviles */
-    }
-    .header > img {
-        margin-bottom: 10px; /* Añade un poco de espacio entre el logotipo y los enlaces en dispositivos móviles */
-    }
-    .header > .flex {
-        margin-top: 10px; /* Añade un poco de espacio entre los enlaces y el botón en dispositivos móviles */
-    }
-}
-
-/* CSS para el menú desplegable en dispositivos móviles */
-@media (max-width: 1023px) {
-    #mobileMenuButton:focus + #mobileMenu {
-      display: flex;
-    }
-}
-
-.border-b-gradient {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-image: linear-gradient(to right, #FFA500, #088395, #003355);
-    z-index: -1;
-  }
-  
-  /* Transición del color del borde inferior */
+/* CSS personalizado para dispositivos móviles */
+@media (max-width: 1040px) {
   .header {
-    position: relative;
+    padding: 20px; /* Añade un poco de espacio alrededor del encabezado en dispositivos móviles */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s;
+    box-shadow: none; /* Elimina la sombra */
   }
-  
-  .header:hover .border-b-gradient {
-    animation: moveGradient 2s linear infinite;
+  .header > img {
+    margin-bottom: 10px; /* Añade un poco de espacio entre el logotipo y los enlaces en dispositivos móviles */
   }
-  
-  @keyframes moveGradient {
-    0% {
-      background-position: left;
-    }
-    100% {
-      background-position: right;
-    }
+  .lg\:hidden {
+    display: flex;
   }
+  #mobileMenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #mobileMenu.block {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-content {
+    padding-top: 0px; /* Ajusta este valor según la altura de tu navbar */
+  }
+}
+
+/* CSS para ocultar el botón de menú en pantallas grandes */
+@media (min-width: 1040px) {
+  .lg\:hidden {
+    display: none;
+  }
+  #mobileMenu {
+    display: flex;
+    flex-direction: row;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s;
+    box-shadow: none; /* Elimina la sombra */
+  }
+
+  .main-content {
+    padding-top: 120px; /* Ajusta este valor según la altura de tu navbar */
+  }
+}
+
+/* Estilo para el enlace activo */
+.header a.active .text-sky-950 {
+  border-bottom: 2px solid #FFA500;
+  color: #FFA500;
+}
+
+/* Mantén los estilos de la clase `border-b-gradient` si es necesario */
+.border-b-gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, #FFA500, #088395, #003355);
+  z-index: -1;
+}
+
+/* Transición del color del borde inferior */
+.header:hover .border-b-gradient {
+  animation: moveGradient 2s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+/* Clase para ocultar el navbar */
+.hide-navbar {
+  transform: translateY(-100%);
+}
+
+/* Clase para mostrar el navbar */
+.show-navbar {
+  transform: translateY(0);
+}
+
+.logo {
+  margin-top: 1rem;
+}

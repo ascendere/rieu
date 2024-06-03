@@ -5,7 +5,7 @@ import { NewsService } from '../../../services/news.service';
 @Component({
   selector: 'app-landing-news',
   templateUrl: './landing-news.component.html',
-  styleUrls: ['./landing-news.component.css']
+  styleUrls: ['./landing-news.component.css'],
 })
 export class LandingNewsComponent implements OnInit {
   recentNews: (News & { truncatedTitle: string })[] = [];
@@ -17,11 +17,13 @@ export class LandingNewsComponent implements OnInit {
   }
 
   loadRecentNews(): void {
-    this.newsService.getNews().subscribe(news => {
-      news.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      this.recentNews = news.slice(0, 3).map(newsItem => ({
+    this.newsService.getNews().subscribe((news) => {
+      news.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      this.recentNews = news.slice(0, 3).map((newsItem) => ({
         ...newsItem,
-        truncatedTitle: this.truncateTitle(newsItem.title, 10)
+        truncatedTitle: this.truncateTitle(newsItem.title, 10),
       }));
     });
   }

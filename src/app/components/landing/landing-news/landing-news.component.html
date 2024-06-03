@@ -1,20 +1,28 @@
-
-<div class="relative mt-10">
-    <div class="text-center text-rieu-blue text-2xl font-bold " [routerLink]="['/lnews-list']" style="cursor: pointer;">Noticias Recientes</div>
-    <div class="flex justify-center mt-10">
-        <!-- *ngFor limitado a 3 tarjetas -->
-        <div *ngFor="let news of recentNews" class="w-[370px] h-[105px] relative mx-8 my-4">
-            <div class="w-full h-full absolute bg-white rounded-[10px] shadow-lg border-2 border-gray-300 overflow-hidden">
+<div class="relative mt-16">
+  <!-- Contenedor del título -->
+  <div class="text-center text-rieu-blue text-2xl font-bold" [routerLink]="['/lnews-list']" style="cursor: pointer;">
+    Eventos Recientes
+  </div>
+  <!-- Contenedor de las tarjetas -->
+  <div class="flex flex-wrap justify-center mt-10">
+    <!-- *ngFor limitado a 3 tarjetas -->
+    <div *ngFor="let news of recentNews" class="w-full sm:w-[23rem] h-[25rem] relative mx-8 my-4 group">
+      <a [routerLink]="['/news-detail', news.id]" class="portfolio__single block w-full h-full relative rounded-[0.625rem] overflow-hidden shadow-lg">
+        <img class="w-full h-full object-cover rounded-[0.625rem]" [src]="news.image" alt="{{ news.title }}" />
+        <div class="portfolio__hover absolute bottom-0 left-0 right-0 bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out rounded-b-[0.625rem] p-4" style="background: linear-gradient(180deg, #F4F4F4 0%, #E8E8E8 100%); min-height: 4rem;">
+          <div class="hover-content w-full flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="portfolio__hover__heading text-[#003355] text-base font-bold">{{ news.title }}</h3>
+                <p class="portfolio__hover__text text-[#003355] text-xs">{{ news.date | date: 'longDate' }}</p>
+              </div>
+              <div class="portfolio__hover__link text-[#003355] text-xl ml-4">
+                <img src="../../../../assets/images/arrow-up-right-from-square-solid.svg" alt="External link icon" class="w-10 h-10"/>
+              </div>
             </div>
-            <div class="w-[105px] h-[105px] left-0 top-0 absolute bg-white rounded-tl-[10px] rounded-bl-[10px] overflow-hidden">
-                <img class="w-full h-full top-0 absolute object-cover" [src]="news.image" alt="{{ news.title }}" />
-            </div>
-            <div class="w-[234px] left-[119px] top-[14px] absolute text-zinc-600 text-sm font-normal font-Inter leading-snug">{{ news.truncatedTitle }}</div>
-            <div class="py-2.5 left-[126.50px] top-[58px] absolute rounded-[5px] justify-start items-start gap-2.5 inline-flex">
-                <div class="text-center text-cyan-700 text-base font-medium font-Inter leading-normal">
-                    <a [routerLink]="['/news-detail', news.id]">Leer más</a>
-                </div>
-            </div>
+          </div>
         </div>
+      </a>
     </div>
+  </div>
 </div>
